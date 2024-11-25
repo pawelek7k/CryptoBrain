@@ -1,7 +1,6 @@
-import { createContext, useEffect, useState } from "react";
-import type { ChildrenType } from "../../types/children.d.ts";
-
-export const CoinContext = createContext({});
+import { useEffect, useState } from "react";
+import type { ChildrenType } from "../../types/children";
+import { CoinContext } from "./CoinContext";
 
 const CoinContextProvider = ({ children }: ChildrenType) => {
   const [allCoin, setAllCoin] = useState([]);
