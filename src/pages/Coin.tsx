@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CoinType } from "../../types/coin";
 import { CoinContext } from "../context/CoinContext";
+import { LineChart } from "../components/LineChart";
 
 const CoinPage = () => {
   const { coinId } = useParams();
@@ -57,6 +58,7 @@ const CoinPage = () => {
           <div key={index}>
             <p>Date: {new Date(price[0]).toLocaleDateString()}</p>
             <p>Price: {price[1]}</p>
+            <LineChart />
           </div>
         ))}
       </div>
