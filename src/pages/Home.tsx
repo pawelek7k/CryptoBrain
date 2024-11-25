@@ -11,7 +11,9 @@ const HomePage = () => {
   const [input, setInput] = useState<string>("");
 
   const inputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
+    const value = e.target.value;
+    setInput(value);
+    if (value.trim() === "") setDisplayCoin(allCoin);
   };
 
   const searchHandler = (e: FormEvent<HTMLFormElement>) => {
