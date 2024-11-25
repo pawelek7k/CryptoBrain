@@ -1,10 +1,12 @@
 import { Navbar } from "./components/Navbar";
+import { RouterIndex } from "./routes/RouterIndex";
 
 function App() {
   return (
-    <div className="h-screen bg-zinc-950 text-zinc-100">
+    <>
       <Navbar />
-    </div>
+      <RouterIndex />
+    </>
   );
 }
 
