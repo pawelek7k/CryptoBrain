@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CoinType } from "../../types/coin";
-import { CoinContext } from "../context/CoinContext";
 import { LineChart } from "../components/LineChart";
+import { CoinContext } from "../context/CoinContext";
 
 const CoinPage = () => {
   const { coinId } = useParams();
   const [coinData, setCoinData] = useState<CoinType | null>(null);
-  const [historicalData, setHistoricalData] = useState<any>(null);
+  const [historicalData, setHistoricalData] = useState(null);
   const { currency } = useContext(CoinContext);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const CoinPage = () => {
   const fetchHistoricalData = async () => {
     try {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=1`
+        `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10`
       );
       const data = await response.json();
       setHistoricalData(data);
@@ -53,15 +53,7 @@ const CoinPage = () => {
       <h1>{coinData.name}</h1>
       <p>{coinData.symbol}</p>
       <h2>Historical Data (Last 10 Days)</h2>
-      <div>
-        {historicalData?.prices?.map((price: unkown, index: number) => (
-          <div key={index}>
-            <p>Date: {new Date(price[0]).toLocaleDateString()}</p>
-            <p>Price: {price[1]}</p>
-            <LineChart />
-          </div>
-        ))}
-      </div>
+      <LineChart historicalData={historicalData} />
     </div>
   );
 };
