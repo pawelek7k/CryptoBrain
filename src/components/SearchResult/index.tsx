@@ -26,31 +26,27 @@ export const SearchResult = () => {
       <h2 className="text-3xl font-semibold">Search Results</h2>
       <div className="w-full mt-4">
         <ul className="flex flex-col gap-2 w-full">
-          {filteredCoins.length > 0 ? (
-            filteredCoins.map((item, index) => (
-              <li
-                key={index}
-                className="hover:bg-zinc-900 rounded-md px-4 py-2 cursor-pointer "
-              >
-                <Link to={`/coin/${item.id}`}>
-                  <div className="flex items-center hover:bg-zinc-900 rounded-md px-4 py-2 cursor-pointer justify-between">
-                    <div className="flex items-center gap-4">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        width={30}
-                        height={30}
-                      />
-                      <p className="font-semibold">{item.name}</p>
-                    </div>
-                    <p>{item.symbol.toUpperCase()}</p>
+          {filteredCoins.map((item, index) => (
+            <li
+              key={index}
+              className="hover:bg-zinc-900 rounded-md px-4 py-2 cursor-pointer "
+            >
+              <Link to={`/coin/${item.id}`}>
+                <div className="flex items-center hover:bg-zinc-900 rounded-md px-4 py-2 cursor-pointer justify-between">
+                  <div className="flex items-center gap-4">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width={30}
+                      height={30}
+                    />
+                    <p className="font-semibold">{item.name}</p>
                   </div>
-                </Link>
-              </li>
-            ))
-          ) : (
-            <p>No results found.</p>
-          )}
+                  <p>{item.symbol.toUpperCase()}</p>
+                </div>
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
