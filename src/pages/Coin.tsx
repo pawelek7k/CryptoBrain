@@ -37,7 +37,7 @@ const CoinPage = () => {
   const fetchHistoricalData = async () => {
     try {
       const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10`
+        `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10&interval=daily`
       );
       const data = await response.json();
       setHistoricalData(data);
