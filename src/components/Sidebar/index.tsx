@@ -19,13 +19,13 @@ export const Sidebar = () => {
   }, [allCoin]);
 
   return (
-    <div className="h-screen">
-      <h2>The most popular coins</h2>
-      <ul>
-        <li>
-          {Array.isArray(displayCoin) &&
-            displayCoin.slice(0, 10).map((item, index) => (
-              <Link to={`/coin/${item.id}`} key={index}>
+    <div className="h-screen p-4">
+      {/* <h2>The most popular coins</h2> */}
+      <ul className="flex-col gap-4 border-4 border-yellow-950 px-2 rounded-md w-20 flex justify-center items-center py-6">
+        {Array.isArray(displayCoin) &&
+          displayCoin.slice(0, 10).map((item, index) => (
+            <li key={index}>
+              <Link to={`/coin/${item.id}`}>
                 <div className="flex items-center gap-2">
                   <img
                     src={item.image}
@@ -33,11 +33,10 @@ export const Sidebar = () => {
                     width={30}
                     height={30}
                   />
-                  <p>{item.symbol.toUpperCase()}</p>
                 </div>
               </Link>
-            ))}
-        </li>
+            </li>
+          ))}
       </ul>
     </div>
   );

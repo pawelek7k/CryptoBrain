@@ -16,7 +16,7 @@ const CoinContextProvider = ({ children }: ChildrenType) => {
       method: "GET",
       headers: {
         accept: "application/json",
-        "x-cg-demo-api-key": import.meta.env.VITE_X_CG_DEMO_API_KEY,
+        // "x-cg-demo-api-key": import.meta.env.VITE_X_CG_DEMO_API_KEY,
       },
     };
 
