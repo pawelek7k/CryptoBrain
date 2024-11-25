@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import type { ChildrenType } from "../../types/children";
+import type { CoinType } from "../../types/coin";
+import type { CurrencyType } from "../../types/currency";
 import { CoinContext } from "./CoinContext";
 
 const CoinContextProvider = ({ children }: ChildrenType) => {
-  const [allCoin, setAllCoin] = useState([]);
-  const [currency, setCurrency] = useState({
+  const [allCoin, setAllCoin] = useState<CoinType[]>([]);
+  const [currency, setCurrency] = useState<CurrencyType>({
     name: "usd",
     symbol: "$",
   });
