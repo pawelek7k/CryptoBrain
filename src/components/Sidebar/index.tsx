@@ -19,7 +19,7 @@ export const Sidebar = () => {
   }, [allCoin]);
 
   return (
-    <div className="h-screen p-4">
+    <div className="h-screen px-4 pt-20">
       {/* <h2>The most popular coins</h2> */}
       <ul className="flex-col gap-4 border-4 border-yellow-950 px-2 rounded-md w-20 flex justify-center items-center py-6">
         {Array.isArray(displayCoin) &&
