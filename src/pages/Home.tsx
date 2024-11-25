@@ -1,9 +1,7 @@
+import { SearchResult } from "../components/SearchResult";
+
 const HomePage = () => {
-  return (
-    <div className="">
-      <h1>Homepage</h1>
-    </div>
-  );
+  return <SearchResult />;
 };
 
 export default HomePage;
