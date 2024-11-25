@@ -1,10 +1,10 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import type { CoinType } from "../../types/coin.d.ts";
 import { CoinContext } from "../context/CoinContext";
-import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const { allCoin, currency } = useContext(CoinContext) as {
+  const { allCoin } = useContext(CoinContext) as {
     allCoin: CoinType[];
     currency: { name: string; symbol: string };
   };
