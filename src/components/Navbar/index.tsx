@@ -1,10 +1,10 @@
 import { ChangeEvent, useContext } from "react";
 import { CoinContext } from "../../context/CoinContext";
 import { Logo } from "../Logo";
+import { SearchForm } from "../SearchForm";
 
 export const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
-
   const currencyHandler = (e: ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;
 
@@ -27,6 +27,7 @@ export const Navbar = () => {
     <header className="flex p-4 items-center justify-around">
       <Logo />
       <div className="flex gap-6">
+        <SearchForm />
         <select
           onChange={currencyHandler}
           className="bg-transparent outline-none cursor-pointer"
