@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useContext, useEffect, useState } from "react";
 import type { CoinType } from "../../types/coin.d.ts";
 import { CoinContext } from "../context/CoinContext";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const { allCoin, currency } = useContext(CoinContext) as {
@@ -40,10 +41,10 @@ const HomePage = () => {
         <button>Search</button>
       </form>
       {displayCoin.slice(0, 10).map((item, index) => (
-        <div key={index}>
+        <Link to={`/coin/${item.id}`} key={index}>
           <p>{item.name}</p>
           <img src={item.image} alt="" width={30} height={30} />
-        </div>
+        </Link>
       ))}
     </div>
   );
