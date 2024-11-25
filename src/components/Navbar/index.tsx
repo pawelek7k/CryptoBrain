@@ -27,10 +27,19 @@ export const Navbar = () => {
     <header className="flex p-4 items-center justify-around">
       <Logo />
       <div className="flex gap-6">
-        <select onChange={currencyHandler}>
-          <option value="usd">USD</option>
-          <option value="eur">EUR</option>
-          <option value="inr">INR</option>
+        <select
+          onChange={currencyHandler}
+          className="bg-transparent outline-none cursor-pointer"
+        >
+          <option value="usd" className="bg-zinc-950">
+            USD
+          </option>
+          <option value="eur" className="bg-zinc-950">
+            EUR
+          </option>
+          <option value="inr" className="bg-zinc-950">
+            INR
+          </option>
         </select>
         <button className="primary-btn">Sign up</button>
       </div>
