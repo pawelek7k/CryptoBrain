@@ -32,6 +32,11 @@ const HomePage = () => {
     <div>
       <form action="" onSubmit={searchHandler}>
         <input type="text" onChange={inputHandler} required value={input} />
+        <datalist>
+          {allCoin.map((item, index) => (
+            <option key={index} value={item.name} />
+          ))}
+        </datalist>
         <button>Search</button>
       </form>
       {displayCoin.slice(0, 10).map((item, index) => (
