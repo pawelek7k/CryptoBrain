@@ -26,8 +26,15 @@ export const Sidebar = () => {
           {Array.isArray(displayCoin) &&
             displayCoin.slice(0, 10).map((item, index) => (
               <Link to={`/coin/${item.id}`} key={index}>
-                <p>{item.name}</p>
-                <img src={item.image} alt={item.name} width={30} height={30} />
+                <div className="flex items-center gap-2">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    width={30}
+                    height={30}
+                  />
+                  <p>{item.symbol.toUpperCase()}</p>
+                </div>
               </Link>
             ))}
         </li>
