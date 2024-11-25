@@ -1,5 +1,6 @@
 import { ChangeEvent, useContext } from "react";
 import { CoinContext } from "../../context/CoinContext";
+import { Logo } from "../Logo";
 
 export const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
@@ -24,7 +25,7 @@ export const Navbar = () => {
 
   return (
     <header className="flex p-4 items-center justify-around">
-      <h1>Logo</h1>
+      <Logo />
       <div className="flex gap-6">
         <select onChange={currencyHandler}>
           <option value="usd">USD</option>
