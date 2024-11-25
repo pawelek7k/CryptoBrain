@@ -14,6 +14,7 @@ const HomePage = () => {
       {displayCoin.slice(0, 10).map((item, index) => (
         <div key={index}>
           <p>{item.name}</p>
+          <img src={item.image} alt="" width={30} height={30} />
         </div>
       ))}
     </div>
