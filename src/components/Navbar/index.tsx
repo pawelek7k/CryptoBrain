@@ -24,7 +24,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="flex p-4 items-center justify-around fixed top-0 left-0 w-full">
+    <header className="flex p-4 items-center justify-around fixed top-0 left-0 w-full bg-zinc-950">
       <Logo />
       <div className="flex gap-6">
         <SearchForm />

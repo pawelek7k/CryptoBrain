@@ -27,7 +27,10 @@ export const SearchResult = () => {
         <ul className="flex flex-col gap-2 w-full">
           {filteredCoins.length > 0 ? (
             filteredCoins.map((coin) => (
-              <li key={coin.id} className="flex items-center gap-4">
+              <li
+                key={coin.id}
+                className="flex items-center gap-4 hover:bg-zinc-900 rounded-md px-4 py-2 cursor-pointer"
+              >
                 <img src={coin.image} alt={coin.name} width={30} height={30} />
                 <p>{coin.name}</p>
               </li>
