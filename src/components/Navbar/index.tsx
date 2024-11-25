@@ -32,7 +32,7 @@ export const Navbar = () => {
           <option value="eur">EUR</option>
           <option value="inr">INR</option>
         </select>
-        <button>Sign up</button>
+        <button className="primary-btn">Sign up</button>
       </div>
     </header>
   );
