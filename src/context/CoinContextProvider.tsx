@@ -20,13 +20,26 @@ const CoinContextProvider = ({ children }: ChildrenType) => {
       },
     };
 
-    fetch(
-      `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
-      options
-    )
-      .then((res) => res.json())
-      .then((res) => setAllCoin(res))
-      .catch((err) => console.error(err));
+    try {
+      const res = await fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency.name}`,
+        options
+      );
+
+      if (!res.ok) {
+        console.error(`Error: ${res.status} ${res.statusText}`);
+        return;
+      }
+
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setAllCoin(data);
+      } else {
+        console.error("Unexpected response format:", data);
+      }
+    } catch (err) {
+      console.error("Fetch failed:", err);
+    }
   };
 
   useEffect(() => {
