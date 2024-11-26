@@ -24,9 +24,9 @@ export const Trending = () => {
       <h2>Trending</h2>
       {trendingData ? (
         <div>
-          <ul>
+          <ul className="w-80 border-2 border-zinc-900 rounded-md">
             {trendingData.coins.map((coin, index: number) => (
-              <li key={index} className="flex items-center gap-4">
+              <li key={index} className="flex items-center gap-4 map-item">
                 <img
                   src={coin.item.thumb}
                   alt={coin.item.name}
