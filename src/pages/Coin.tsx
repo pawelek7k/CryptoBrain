@@ -35,7 +35,6 @@ const CoinPage = () => {
   if (!coinData || !historicalData) return <div>Loading...</div>;
 
   const chartData = prepareChartData(historicalData, currency.symbol);
-  console.log(coinData);
 
   return (
     <div className="flex flex-col gap-2">
