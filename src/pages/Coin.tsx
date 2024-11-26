@@ -43,12 +43,12 @@ const CoinPage = () => {
         <h1 className="heading">{coinData.name}</h1>-
         <p>{coinData.symbol.toUpperCase()}</p>
       </div>
-      <ul className="flex gap-2">
+      <ul className="flex gap-2 flex-wrap">
         {coinData.categories.length > 0 ? (
           coinData.categories.map((item: string, index: number) => (
             <li
               key={index}
-              className="bg-yellow-950 rounded-md px-2 hover:bg-yellow-900 ease-in-out cursor-default transition"
+              className="bg-yellow-950 rounded-md px-2 hover:bg-yellow-900 ease-in-out cursor-default transition items-center "
             >
               {item}
             </li>
