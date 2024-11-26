@@ -23,7 +23,7 @@ export const Trending = () => {
     <div>
       <h2 className="heading">Trending</h2>
       {trendingData ? (
-        <div>
+        <div className="mt-10">
           <ul className="w-80 border-2 border-zinc-900 rounded-md">
             {trendingData.coins.map((coin, index: number) => (
               <li key={index} className="flex items-center gap-4 map-item">
