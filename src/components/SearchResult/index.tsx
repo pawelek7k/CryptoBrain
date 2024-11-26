@@ -23,7 +23,7 @@ export const SearchResult = () => {
 
   return (
     <div>
-      <h2 className="text-3xl font-semibold">Search Results</h2>
+      <h2 className="heading">Search Results</h2>
       <div className="w-full mt-4">
         <ul className="flex flex-col gap-2 w-full">
           {filteredCoins.map((item, index) => (
