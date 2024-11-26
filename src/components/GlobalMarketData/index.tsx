@@ -19,7 +19,7 @@ export const GlobalMarketData = () => {
   const chartData = prepareChartData(historicalData, "$");
 
   return (
-    <div className="w-full px-12">
+    <div className="w-full lg:px-2">
       <h2 className="heading">Global Market Data</h2>
       <Line data={chartData} options={chartOptions} className="mt-10" />
     </div>
