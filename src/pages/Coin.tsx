@@ -35,6 +35,7 @@ const CoinPage = () => {
   if (!coinData || !historicalData) return <div>Loading...</div>;
 
   const chartData = prepareChartData(historicalData, currency.symbol);
+  console.log(coinData);
 
   return (
     <div className="flex flex-col gap-2">
@@ -42,6 +43,7 @@ const CoinPage = () => {
         <h1 className="heading">{coinData.name}</h1>-
         <p>{coinData.symbol.toUpperCase()}</p>
       </div>
+      <span className="text-sm text-zinc-600">{coinData.genesis_date}</span>
       <ul className="flex gap-2 flex-wrap">
         {coinData.categories.length > 0 ? (
           coinData.categories.map((item: string, index: number) => (
