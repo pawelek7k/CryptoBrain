@@ -1,59 +1,47 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Line } from "react-chartjs-2";
+import { fetchCoinData, fetchHistoricalData } from "../utils/api";
+import { prepareChartData, chartOptions } from "../utils/chartUtils";
 import { CoinType } from "../../types/coin";
-import { LineChart } from "../components/LineChart";
 import { CoinContext } from "../context/CoinContext";
 
 const CoinPage = () => {
   const { coinId } = useParams();
   const [coinData, setCoinData] = useState<CoinType | null>(null);
-  const [historicalData, setHistoricalData] = useState(null);
+  const [historicalData, setHistoricalData] = useState<any>(null);
   const { currency } = useContext(CoinContext);
 
   useEffect(() => {
-    if (coinId) {
-      fetchCoinData(coinId);
-    }
+    const fetchData = async () => {
+      if (coinId) {
+        const data = await fetchCoinData(coinId);
+        setCoinData(data);
+      }
+    };
+    fetchData();
   }, [coinId]);
 
   useEffect(() => {
-    if (coinId && currency) {
-      fetchHistoricalData();
-    }
+    const fetchHistory = async () => {
+      if (coinId && currency) {
+        const data = await fetchHistoricalData(coinId, currency.name);
+        setHistoricalData(data);
+      }
+    };
+    fetchHistory();
   }, [coinId, currency]);
 
-  const fetchCoinData = async (id: string) => {
-    try {
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${id}`
-      );
-      const data = await response.json();
-      setCoinData(data);
-    } catch (err) {
-      console.error("Error fetching coin data:", err);
-    }
-  };
-
-  const fetchHistoricalData = async () => {
-    try {
-      const response = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${currency.name}&days=10&interval=daily`
-      );
-      const data = await response.json();
-      setHistoricalData(data);
-    } catch (err) {
-      console.error("Error fetching historical data:", err);
-    }
-  };
-
   if (!coinData || !historicalData) return <div>Loading...</div>;
+
+  const chartData = prepareChartData(historicalData, currency.symbol);
 
   return (
     <div>
       <h1>{coinData.name}</h1>
       <p>{coinData.symbol}</p>
       <h2>Historical Data (Last 10 Days)</h2>
-      <LineChart historicalData={historicalData} />
+      <Line data={chartData} options={chartOptions} />
     </div>
   );
 };
