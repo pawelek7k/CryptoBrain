@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <>
       {!input && (
-        <div className="flex flex-col md:flex-row w-full gap-8">
+        <div className="flex flex-col lg:flex-row w-full gap-8">
           <Trending />
           <GlobalMarketData />
         </div>
