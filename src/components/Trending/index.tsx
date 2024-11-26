@@ -21,7 +21,7 @@ export const Trending = () => {
 
   return (
     <div>
-      <h2>Trending</h2>
+      <h2 className="heading">Trending</h2>
       {trendingData ? (
         <div>
           <ul className="w-80 border-2 border-zinc-900 rounded-md">
