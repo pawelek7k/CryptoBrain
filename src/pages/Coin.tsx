@@ -46,7 +46,10 @@ const CoinPage = () => {
       <ul className="flex gap-2">
         {coinData.categories.length > 0 ? (
           coinData.categories.map((item: string, index: number) => (
-            <li key={index} className="bg-yellow-950 rounded-md px-2">
+            <li
+              key={index}
+              className="bg-yellow-950 rounded-md px-2 hover:bg-yellow-900 ease-in-out cursor-default transition"
+            >
               {item}
             </li>
           ))
