@@ -1,3 +1,7 @@
+import { Chart as ChartJS, LinearScale, CategoryScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(LinearScale, CategoryScale, PointElement, LineElement, Title, Tooltip, Legend);
+
 export const prepareChartData = (historicalData, currencySymbol: string) => {
     return {
         labels: historicalData.prices.map((entry: number[]) =>
@@ -27,6 +31,7 @@ export const chartOptions = {
     scales: {
         y: {
             beginAtZero: false,
+            type: 'linear',
         },
     },
 };
