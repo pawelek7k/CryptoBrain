@@ -1,22 +1,20 @@
 import { useEffect, useState } from "react";
+import { fetchTrendingData } from "../../utils/api";
 
 export const Trending = () => {
   const [trendingData, setTrendingData] = useState(null);
 
-  const fetchTrendingData = async () => {
-    try {
-      const response = await fetch(
-        "https://api.coingecko.com/api/v3/search/trending"
-      );
-      const data = await response.json();
-      setTrendingData(data);
-    } catch (err) {
-      console.error("Error fetching coin data:", err);
-    }
-  };
-
   useEffect(() => {
-    fetchTrendingData();
+    const fetchData = async () => {
+      try {
+        const data = await fetchTrendingData();
+        setTrendingData(data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
   }, []);
 
   return (

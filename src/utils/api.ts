@@ -36,3 +36,15 @@ export const fetchTrendingData = async () => {
         throw err;
     }
 };
+
+export const fetchGlobalData = async () => {
+    try {
+        const response = await fetch(
+            "https://api.coingecko.com/api/v3/global/decentralized_finance_defi"
+        );
+        const data = await response.json();
+        return data;
+    } catch (err) {
+        console.error("Error fetching coin data:", err);
+    }
+};
