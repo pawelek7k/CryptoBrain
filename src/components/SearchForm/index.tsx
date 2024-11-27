@@ -15,7 +15,7 @@ export const SearchForm = () => {
         required
         value={input}
         placeholder="Search for a coin"
-        className="bg-zinc-950 px-4 py-1 outline-none w-[280px] text-zinc-100 rounded-lg border-2 transition duration-100 border-solid focus:border-yellow-950 border-zinc-900"
+        className="bg-zinc-950 px-4 py-1 w-full outline-none md:w-[280px] text-zinc-100 rounded-lg border-2 transition duration-100 border-solid focus:border-yellow-950 border-zinc-900"
       />
     </form>
   );
