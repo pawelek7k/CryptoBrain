@@ -1,8 +1,9 @@
-import { Chart as ChartJS, LinearScale, CategoryScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { CategoryScale, Chart as ChartJS, Legend, LinearScale, LineElement, PointElement, Title, Tooltip } from 'chart.js';
+import type { HistoricalDataType } from '../../types/historicalData';
 
 ChartJS.register(LinearScale, CategoryScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export const prepareChartData = (historicalData, currencySymbol: string) => {
+export const prepareChartData = (historicalData: HistoricalDataType, currencySymbol: string) => {
     return {
         labels: historicalData.prices.map((entry: number[]) =>
             new Date(entry[0]).toLocaleDateString()
