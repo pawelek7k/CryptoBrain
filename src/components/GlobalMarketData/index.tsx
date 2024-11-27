@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import { fetchHistoricalData } from "../../utils/api";
 import { chartOptions, prepareChartData } from "../../utils/chartUtils";
+import { Loading } from "../Loading";
 
 export const GlobalMarketData = () => {
   const [historicalData, setHistoricalData] = useState(null);
@@ -14,7 +15,7 @@ export const GlobalMarketData = () => {
     fetchGlobalData();
   }, []);
 
-  if (!historicalData) return <div>Loading...</div>;
+  if (!historicalData) return <Loading />;
 
   const chartData = prepareChartData(historicalData, "$");
 
