@@ -38,7 +38,9 @@ export const Navbar = () => {
         <SelectCurrency currencyHandler={currencyHandler} />
         <button className="primary-btn">Sign up</button>
       </div>
-      <Hamburger toggle={toggleMenu} toggled={isOpen} />
+      <div className="md:hidden">
+        <Hamburger toggle={toggleMenu} toggled={isOpen} />
+      </div>
       <AnimatePresence>
         {isOpen && (
           <motion.div
