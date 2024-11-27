@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchTrendingData } from "../../utils/api";
+import { Loading } from "../Loading";
 
 export const Trending = () => {
   const [trendingData, setTrendingData] = useState(null);
@@ -42,7 +43,7 @@ export const Trending = () => {
           </ul>
         </div>
       ) : (
-        <p>Loading...</p>
+        <Loading />
       )}
     </div>
   );
