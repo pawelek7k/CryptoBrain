@@ -3,9 +3,12 @@ import { Line } from "react-chartjs-2";
 import { fetchHistoricalData } from "../../utils/api";
 import { chartOptions, prepareChartData } from "../../utils/chartUtils";
 import { Loading } from "../Loading";
+import type { CurrencyType } from "../../../types/currency";
 
 export const GlobalMarketData = () => {
-  const [historicalData, setHistoricalData] = useState(null);
+  const [historicalData, setHistoricalData] = useState<CurrencyType | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchGlobalData = async () => {
