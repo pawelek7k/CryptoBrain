@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
+import type { TrendingCoin } from "../../../types/trendingCoin";
 import { fetchTrendingData } from "../../utils/api";
 import { Loading } from "../Loading";
 
+type TrendingDataType = {
+  coins: TrendingCoin[];
+};
 export const Trending = () => {
-  const [trendingData, setTrendingData] = useState(null);
+  const [trendingData, setTrendingData] = useState<TrendingDataType | null>(
+    null
+  );
 
   useEffect(() => {
     const fetchData = async () => {
