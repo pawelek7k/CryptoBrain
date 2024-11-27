@@ -31,7 +31,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="flex p-4 items-center justify-between fixed top-0 left-0 w-full bg-zinc-950 z-50">
+    <header className="flex p-4 items-center justify-between md:justify-around fixed top-0 left-0 w-full bg-zinc-950 z-50">
       <Logo />
       <div className="hidden md:flex gap-6 items-center">
         <SearchForm />
