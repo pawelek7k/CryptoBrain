@@ -4,6 +4,7 @@ import { ChangeEvent, useContext, useState } from "react";
 import { CoinContext } from "../../context/CoinContext";
 import { Logo } from "../Logo";
 import { SearchForm } from "../SearchForm";
+import { SelectCurrency } from "../SelectCurrency";
 
 export const Navbar = () => {
   const { setCurrency } = useContext(CoinContext);
@@ -34,20 +35,7 @@ export const Navbar = () => {
       <Logo />
       <div className="hidden md:flex gap-6 items-center">
         <SearchForm />
-        <select
-          onChange={currencyHandler}
-          className="bg-transparent outline-none cursor-pointer"
-        >
-          <option value="usd" className="bg-zinc-950">
-            USD
-          </option>
-          <option value="eur" className="bg-zinc-950">
-            EUR
-          </option>
-          <option value="inr" className="bg-zinc-950">
-            INR
-          </option>
-        </select>
+        <SelectCurrency currencyHandler={currencyHandler} />
         <button className="primary-btn">Sign up</button>
       </div>
       <Hamburger toggle={toggleMenu} toggled={isOpen} />
@@ -60,22 +48,11 @@ export const Navbar = () => {
             transition={{ duration: 0.3 }}
             className="fixed top-0 left-0 w-3/4 h-full bg-zinc-950 shadow-lg z-50 flex flex-col px-6 py-12"
           >
-            <SearchForm />
-            <select
-              onChange={currencyHandler}
-              className="bg-transparent outline-none cursor-pointer my-4"
-            >
-              <option value="usd" className="bg-zinc-950">
-                USD
-              </option>
-              <option value="eur" className="bg-zinc-950">
-                EUR
-              </option>
-              <option value="inr" className="bg-zinc-950">
-                INR
-              </option>
-            </select>
-            <button className="primary-btn">Sign up</button>
+            <div className="flex flex-col gap-6">
+              <SearchForm />
+              <SelectCurrency currencyHandler={currencyHandler} />
+              <button className="primary-btn">Sign up</button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
